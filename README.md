@@ -1,2 +1,6 @@
 # Tanuki-Code-Demo
-Tanuki is a 3D Puzzle Platformer I developed with a few friends, the main repository is private and is on GitLab.
+Tanuki is a 3D Puzzle Platformer I developed with over the past few months. The game can be found by following this **[link](https://angusfan.itch.io/i-became-a-tanuki-but-i-couldnt-get-rid-of-my-alcholoic)**. The full repository includes packages and software that I do not have the license to distribute, so for the time being, here are a few files that are used in the game. The core gameplay loop of the game consists of creating clones in order to solve puzzles and allow the main character to reach the endpoint. Playing quickly and fluidly allows the player to acheive high ranks when completing levels. The logic used to make the game possible is somewhat complex at a first glance, the clones are controlled and played back with my own **[Unity Input Recorder](https://github.com/Angus-Fan/unityReplay)**. While the positional recordig and time jumps are handled by a node system. The two systems will be covered below. 
+
+## Level Manager
+
+The **levelManager** script is the main level manager for the game. It includes listeners for all the player inputs as well as retaining information on the level's timer and all other scripts. Within the **fixedUpdate()** function of the script you can see the **inputHandler()** being called, this script allows for the player to interact with the game world with their key inputs. Withi

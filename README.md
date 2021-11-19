@@ -7,19 +7,20 @@ Tanuki is a 3D Puzzle Platformer I developed with over the past few months. The 
 
 The **levelManager** script is the main level manager for the game. It includes listeners for all the player inputs as well as retaining information on the level's timer and all other scripts. Within the **fixedUpdate()** function of the script you can see the **inputHandler()** being called, this script allows for the player to interact with the game world with their key inputs. Whenever a character creates a clone, the level manager begins to create a node network with the nodes found in the **levelNodeSystem** directory.
 
-## Replay System
+## Replay System 🎥
 
 The clones and the character all use the same recording, replay, and movement code. To put it simply, when the player inputs movements for the character the actions are recorded while moving the character. Once the character is finished it's path, time resets to it's inception point, and the clone can repeat the recorded actions concurrently with whoever the player is controlling.
 
 ![goodClone](https://user-images.githubusercontent.com/33101170/142700224-8935be9f-9b7a-4d6f-bf5f-1100c9aa8330.gif)
 
-## Node System
+## Node System 🔗
 
 Although the clones have their recorded actions, they don't necesarilly know their position in world space at any given time. This is where the node system comes in, the node system keeps track of whenever actions occur. When a player does an important action in the **levelManager** which shifts the timeline a node is created to make note of the updates. At these points a function is called on the **eventSystem** to gather information regarding all interactable (moving / non-static objects) entities. All subscribed entities will add a resetPoint at that time, then whenever a clone has completed it's path or is deleted the **levelManager** checks the node network and changes the level timer to reflect the changes. 
 
-![walk](https://user-images.githubusercontent.com/33101170/142700870-8abc5e5c-70da-4a9b-bd11-5085b943c0a2.gif)
+![eventSystemShort](https://user-images.githubusercontent.com/33101170/142700917-8af2193c-44f0-45dd-be9b-d96a930fb858.gif)
 
-## Event System & Delgates
+
+## Event System & Delgates 👂
 
 Delegates and event systems are what allows me to add new things easily to the game logic without breaking anything. All interactable objects will subscribe themselves to the event system and listen for when key functions are called. You can find the code for this in the **interactableScripts** directiory. In the example below, the object adds it's methods to the event system, so whenever the function in the event system is called it also calls it's own functions.
 
